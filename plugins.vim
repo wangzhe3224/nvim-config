@@ -11,7 +11,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-classpath'
 Plug 'tpope/vim-commentary'
 Plug 'neomake/neomake'
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ncm2/float-preview.nvim'
 Plug 'jiangmiao/auto-pairs'
@@ -22,6 +21,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'luochen1990/rainbow'
 " Theme
 Plug 'joshdick/onedark.vim'
+Plug 'cormacrelf/vim-colors-github'
 Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'sheerun/vim-polyglot'
@@ -30,11 +30,14 @@ Plug 'neomake/neomake'
 Plug 'tidalcycles/vim-tidal'
 " Ocaml
 Plug 'ocaml/vim-ocaml' 
-" I skipped vim-clap but feel free to add it!
-" Conjure! :D
+" Conjure
 Plug 'Olical/conjure', { 'tag': 'v3.4.0' }
 Plug 'dbeniamine/cheat.sh-vim'
-" Initialize plugin system.
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Erlang
+Plug 'vim-erlang/vim-erlang-tags'
+Plug 'vim-erlang/vim-erlang-runtime'
+Plug 'vim-erlang/vim-erlang-omnicomplete'
+Plug 'vim-erlang/vim-erlang-compiler'
 call plug#end()

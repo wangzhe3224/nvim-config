@@ -4,7 +4,8 @@ source ~/.config/nvim/plugins.vim
 "-------------------- 
 "" settings
 syntax on 
-colorscheme onedark
+" colorscheme onedark
+colorscheme github 
 set termguicolors
 " Don't dispay mode in command line (airilne already shows it)
 set noshowmode
@@ -14,7 +15,8 @@ set splitbelow
 set nocursorline
 " air-line
 " let g:airline_powerline_fonts = 1
-let g:airline_extensions = ['branch', 'hunks', 'coc', 'tabline']
+" let g:airline_extensions = ['branch', 'hunks', 'coc', 'tabline']
+let g:airline_theme = "github"
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'z', 'warning', 'error']]
@@ -26,33 +28,12 @@ let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_er
 let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 " Nerdtree and icon
 let g:NERDTreeShowHidden = 1
-let g:NERDTreeMinimalUI = 1
+" let g:NERDTreeMinimalUI = 1
 let g:NERDTreeWinPos = 'rightbelow'
 let g:NERDTreeIgnore = ['^\.DS_Store$', '^tags$', '\.git$[[dir]]', '\.idea$[[dir]]', '\.sass-cache$']
 let g:NERDTreeStatusline = ''
 " Automaticaly close nvim if NERDTree is only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" vim-devicons
-let g:webdevicons_enable = 1
-let g:webdevicons_enable_nerdtree = 1
-let g:webdevicons_enable_unite = 1
-let g:webdevicons_enable_vimfiler = 1
-let g:webdevicons_enable_airline_tabline = 1
-let g:webdevicons_enable_airline_statusline = 1
-let g:webdevicons_enable_ctrlp = 1
-let g:webdevicons_enable_flagship_statusline = 1
-let g:WebDevIconsUnicodeDecorateFileNodes = 1
-let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
-let g:webdevicons_conceal_nerdtree_brackets = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
-let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
-let g:webdevicons_enable_denite = 1
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:DevIconsEnableFoldersOpenClose = 1
-let g:DevIconsEnableFolderPatternMatching = 1
-let g:DevIconsEnableFolderExtensionPatternMatching = 1
-let WebDevIconsUnicodeDecorateFolderNodesExactMatches = 1
 
 " ============================================================================ "
 " ===                             KEY MAPPINGS                             === "
@@ -93,70 +74,6 @@ function! s:denite_filter_my_settings() abort
   \ denite#do_map('do_action', 'split')
 endfunction
 
-" Define mappings while in denite window
-"   <CR>        - Opens currently selected file
-"   q or <Esc>  - Quit Denite window
-"   d           - Delete currenly selected file
-"   p           - Preview currently selected file
-"   <C-o> or i  - Switch to insert mode inside of filter prompt
-"   <C-t>       - Open currently selected file in a new tab
-"   <C-v>       - Open currently selected file a vertical split
-"   <C-h>       - Open currently selected file in a horizontal split
-autocmd FileType denite call s:denite_my_settings()
-function! s:denite_my_settings() abort
-  nnoremap <silent><buffer><expr> <CR>
-  \ denite#do_map('do_action')
-  nnoremap <silent><buffer><expr> q
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> <Esc>
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> d
-  \ denite#do_map('do_action', 'delete')
-  nnoremap <silent><buffer><expr> p
-  \ denite#do_map('do_action', 'preview')
-  nnoremap <silent><buffer><expr> i
-  \ denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> <C-o>
-  \ denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> <C-t>
-  \ denite#do_map('do_action', 'tabopen')
-  nnoremap <silent><buffer><expr> <C-v>
-  \ denite#do_map('do_action', 'vsplit')
-  nnoremap <silent><buffer><expr> <C-h>
-  \ denite#do_map('do_action', 'split')
-endfunction
-
-" Custom options for Denite
-"   auto_resize             - Auto resize the Denite window height automatically.
-"   prompt                  - Customize denite prompt
-"   direction               - Specify Denite window direction as directly below current pane
-"   winminheight            - Specify min height for Denite window
-"   highlight_mode_insert   - Specify h1-CursorLine in insert mode
-"   prompt_highlight        - Specify color of prompt
-"   highlight_matched_char  - Matched characters highlight
-"   highlight_matched_range - matched range highlight
-let s:denite_options = {'default' : {
-\ 'auto_resize': 1,
-\ 'direction': 'rightbelow',
-\ 'winminheight': '10',
-\ 'highlight_mode_insert': 'Visual',
-\ 'highlight_mode_normal': 'Visual',
-\ 'prompt_highlight': 'Function',
-\ 'highlight_matched_char': 'Function',
-\ 'highlight_matched_range': 'Normal'
-\ }}
-
-" Loop through denite options and enable them
-function! s:profile(opts) abort
-  for l:fname in keys(a:opts)
-    for l:dopt in keys(a:opts[l:fname])
-      call denite#custom#option(l:fname, l:dopt, a:opts[l:fname][l:dopt])
-    endfor
-  endfor
-endfunction
-
-call s:profile(s:denite_options)
-
 :let g:python3_host_prog = '/Users/zhewang/anaconda3/bin/python3'
 :set rtp+=/Users/zhewang/.opam/default/share/merlin/vim
 " move among buffers with CTRL
@@ -175,11 +92,9 @@ function! s:check_back_space() abort
 endfunction
 
 " Configuration for various plugins.
-let g:deoplete#enable_at_startup = 1
 let g:rainbow_active = 1
 " call deoplete#custom#option('keyword_patterns', {'clojure': '[\w!$%&*+/:<=>?@\^_~\-\.#]*'})
 set completeopt-=preview
-
 let g:float_preview#docked = 0
 let g:float_preview#max_width = 80
 let g:float_preview#max_height = 40
@@ -257,7 +172,7 @@ let s:denite_options = {'default' : {
 \ 'start_filter': 1,
 \ 'auto_resize': 1,
 \ 'source_names': 'short',
-\ 'prompt': 'λ ',
+\ 'prompt': '> ',
 \ 'highlight_matched_char': 'QuickFixLine',
 \ 'highlight_matched_range': 'Visual',
 \ 'highlight_window_background': 'Visual',
