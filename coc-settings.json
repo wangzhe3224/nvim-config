@@ -4,6 +4,16 @@
             "command": "ocaml-language-server",
             "args": ["--stdio"],
             "filetypes": ["ocaml", "reason"]
-        }
+        },
+        "erlang": {
+            "command": "erlang_ls",
+            "filetypes": ["erlang"]
+        },
+        "haskell": {
+            "command": "haskell-language-server-wrapper",
+            "args": ["--lsp"],
+            "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+            "filetypes": ["haskell", "lhaskell"]
+        }     
     }
 }
