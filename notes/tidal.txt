@@ -6,6 +6,15 @@ type Time = Rational
 
 ## CORE
 
+*show* show all the samples: 
+flick sid can metal future gabba sn mouth co gretsch mt arp h cp
+cr newnotes bass hc tabla bass0 hh bass1 bass2 oc bass3 ho odx
+diphone2 house off ht tink perc bd industrial pluck trump printshort
+jazz voodoo birds3 procshort blip drum jvbass psr wobble drumtraks koy
+rave bottle kurt latibro rm sax lighter lt arpy feel less stab ul
+
+*setcps* is used to set cycle per sencond.
+
 *(<~)*:: Pattern Time -> Pattern a -> Pattern a
 <~ is an operator that shifts a pattern backward in time, by the given amount.
 For example, to shift a pattern by a quarter of a cycle, every fourth cycle:
@@ -14,12 +23,12 @@ Or to alternate between different shifts:
 d1 $ "<0 0.5 0.125>" <~ sound ("arpy arpy:1 arpy:2 arpy:3")
 
 
-(~>) :: Pattern Time -> Pattern a -> Pattern a
+*(~>)* :: Pattern Time -> Pattern a -> Pattern a
 ~> Is the same as above, but shifts a pattern forwards in time. For example:
 d1 $ every 4 (0.25 ~>) $ sound ("bd ~ sn:1 [mt ht]")
 
 
-(<>) :: Pattern a -> Pattern a -> Pattern a
+*(<>)* :: Pattern a -> Pattern a -> Pattern a
 <> is the same as overlay described above but in operator form. For example:
 d1 $ sound ("bd sn:2" <> "cp*3")
 
@@ -925,10 +934,6 @@ shuffle takes a number and a pattern as input, divides the pattern into the give
 d1 $ sound $ shuffle 3 "bd sn hh"
 ... will sometimes play "sn bd hh" or "hh sn bd", but will never play "bd sn bd" or "hh hh hh", because that isn't a permutation of the three parts.
 
-*slowstripe* Pattern Int -> Pattern a -> Pattern a
-The slowstripe function is the same as stripe but the result is also slowed down by n time (where n is the first parameter of the function. This means that the mean average duration of the stripes is exactly one cycle, and every nth stripe starts on a cycle boundary (in indian classical terms, the sam).
-d1 $ slowstripe 3 $ sound "bd sd ~ [mt ht]"
-d2 $ sound "cp"
 
 *someCycles* (Pattern a -> Pattern a) -> Pattern a -> Pattern a
 someCycles is similar to sometimes, but instead of applying the given function to random events, it applies it to random cycles. For example the following will either distort all of the events in a cycle, or none of them:

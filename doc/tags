@@ -1,3 +1,5 @@
+(<>)	tidal.txt	/*(<>)*
+(~>)	tidal.txt	/*(~>)*
 accelerate	tidal.txt	/*accelerate*
 always	tidal.txt	/*always*
 anticipate	tidal.txt	/*anticipate*
@@ -106,15 +108,16 @@ scramble	tidal.txt	/*scramble*
 segment	tidal.txt	/*segment*
 seqP	tidal.txt	/*seqP*
 seqPLoop	tidal.txt	/*seqPLoop*
+setcps	tidal.txt	/*setcps*
 sew	tidal.txt	/*sew*
 shape	tidal.txt	/*shape*
+show	tidal.txt	/*show*
 shuffle	tidal.txt	/*shuffle*
 silence	tidal.txt	/*silence*
 sine	tidal.txt	/*sine*
 size	tidal.txt	/*size*
 slice	tidal.txt	/*slice*
 slow	tidal.txt	/*slow*
-slowstripe	tidal.txt	/*slowstripe*
 slowstripe	tidal.txt	/*slowstripe*
 smash	tidal.txt	/*smash*
 snowball	tidal.txt	/*snowball*
