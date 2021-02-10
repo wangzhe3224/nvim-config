@@ -7,6 +7,7 @@ echo " ~~   (>^.^<) Have a good day."
 "" settings
 syntax on 
 colorscheme dracula 
+" colorscheme delek
 let g:tidal_target = "terminal"
 
 set termguicolors
@@ -182,9 +183,12 @@ function! s:show_documentation()
 endfunction 
 " Ocaml indent"
 autocmd FileType ocaml source ~/.opam/default/share/ocp-indent/vim/indent/ocaml.vim
+
 " Consomized auto pairs
 au FileType ocaml let b:AutoPairs = {'(':')', '[':']', '{':'}','"':'"'}
 au FileType vim let b:AutoPairs = {'(':')', '[':']', '{':'}'}
+au FileType clojure let b:AutoPairs = {'{':'}', '"':'"'}
+
 " commentary
 autocmd FileType tidal setlocal commentstring=--\ %s
 " ============================================================================ "

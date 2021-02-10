@@ -35,6 +35,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'sheerun/vim-polyglot'
+
 " Haskell
 Plug 'tidalcycles/vim-tidal'
 Plug 'alx741/vim-hindent' " Optional
@@ -63,6 +64,8 @@ Plug 'wlangstroth/vim-racket'
 " Markdown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+
 " Racket
 Plug 'wlangstroth/vim-racket'
+
 call plug#end()
