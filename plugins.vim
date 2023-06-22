@@ -5,8 +5,6 @@ Plug 'liuchengxu/vim-better-default'
 
 " Optional useful plugins I highly recommend.
 " Track the engine.
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'tpope/vim-repeat'
@@ -21,7 +19,11 @@ Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'luochen1990/rainbow'
 " Plug 'neomake/neomake'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'

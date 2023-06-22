@@ -25,6 +25,7 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinPos = 'rightbelow'
 let g:NERDTreeIgnore = ['^\.DS_Store$', '^tags$', '\.git$[[dir]]', '\.idea$[[dir]]', '\.sass-cache$']
 let g:NERDTreeStatusline = ''
+let g:python3_host_prog = '/Users/zhewang/.pyenv/shims/python'
 " Automaticaly close nvim if NERDTree is only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -56,6 +57,14 @@ let g:startify_lists = [
 " disable vim-go :GoDef short cut (gd)
 " this is handled by LanguageClient [LC]
 let g:go_def_mapping_enabled = 0
+
+
+" note that if you are using Plug mapping you should not use `noremap` mappings.
+nmap <F5> <Plug>(lcn-menu)
+" Or map each action separately
+nmap <silent>K <Plug>(lcn-hover)
+nmap <silent> gd <Plug>(lcn-definition)
+nmap <silent> <F2> <Plug>(lcn-rename)
 
 
 " fzf config
@@ -101,7 +110,6 @@ endif
 :let mapleader = ','
 :let maplocalleader = ','
 
-:let g:python3_host_prog = '/Users/zhewang/anaconda3/bin/python3'
 :set rtp+=/Users/zhewang/.opam/default/share/merlin/vim
 " move among buffers with CTRL
 map <C-J> :bnext<CR>
